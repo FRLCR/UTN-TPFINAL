@@ -2,6 +2,7 @@ import React from "react";
 import './ProductDetail.css'
 import { useState, useEffect} from 'react';
 import { useParams, NavLink } from 'react-router-dom';
+import { getProduct } from "../utils/peticiones";
 
 function ProductDetail() {
     const { id } = useParams(); 
@@ -9,22 +10,18 @@ function ProductDetail() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const fetchProduct = async () => {
+        try {
+           setProduct(getProduct(id))
+        } catch (err) {
+            setError("Hubo un error al obtener el producto.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
-        fetch(`https://fakestoreapi.com/products/${id}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al cargar el producto');
-                }
-                return response.json();
-            })
-            .then(data => {
-                setProduct(data);
-                setLoading(!loading);
-            })
-            .catch(err => {
-                setError(err.message);
-                setLoading(!loading);
-            });
+        fetchProduct()
     }, []); 
 
     if (loading) {

@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],  
   server:{
@@ -10,16 +9,16 @@ export default defineConfig({
   },
   build: {
     outDir: 'build',
-    assetsDir: 'assets', // Ensure assets are not placed in a separate folder
+    assetsDir: 'assets', 
     sourcemap: false,
-    assetsInlineLimit: 0, // Embed all assets
+    assetsInlineLimit: 0, 
     rollupOptions: {
       input: {
-        main: './index.html', // Punto de entrada principal de la aplicación
+        main: './index.html', 
       },
 
       output: {
-        manualChunks: undefined, // Deshabilitar manualChunks para que Vite maneje los paquetes
+        manualChunks: undefined,
         compact: true,
       },
     },

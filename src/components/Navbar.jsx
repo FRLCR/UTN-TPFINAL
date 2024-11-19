@@ -7,13 +7,11 @@ import { signOut } from 'firebase/auth';
 import { auth } from "../config/firebase";
 
 function Navbar() {
-
-    const { user, role } = useAuth(); // Obtienes el usuario y el estado de carga
+    const { user, role } = useAuth();
     
     const isLogged = user != null
-    const isAdmin = role ==="admin"
+    const isAdmin = role === "admin"
 
-    console.log(isLogged)
     return (
         <header>
             <nav className="navbar">
@@ -26,10 +24,10 @@ function Navbar() {
                         <NavLink to="/register" className={({ isActive }) => (isActive ? "active" : undefined)}>Registrarse</NavLink>
                     </> : null}
 
-                    {isLogged && isAdmin ? <NavLink to="/register" className={({ isActive }) => (isActive ? "active" : undefined)}>Dashboard</NavLink> : null}
+                    {isLogged && isAdmin ? <NavLink to="/admin/dashboard" className={({ isActive }) => (isActive ? "active" : undefined)}>Dashboard</NavLink> : null}
                     
-                    {isLogged ? <> <NavLink to="/register" className={({ isActive }) => (isActive ? "active" : undefined)}>Perfil</NavLink>
-                                   <NavLink to="/register" className={({ isActive }) => (isActive ? "active" : undefined)} onClick={async () => await signOut(auth)}>Cerrar Sesión</NavLink>
+                    {isLogged ? <> <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : undefined)}>Perfil</NavLink>
+                                   <NavLink to="/disconnect" className={({ isActive }) => (isActive ? "active" : undefined)} onClick={async () => await signOut(auth)}>Cerrar Sesión</NavLink>
                                 </> : null}
                   
 
