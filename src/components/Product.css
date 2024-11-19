@@ -1,0 +1,21 @@
+.product-card {
+    margin-top: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px; 
+    text-align: center; 
+}
+
+.product-card img{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 200px;
+        height: 220px;      
+}
+
+.product-card a{
+    text-decoration: none;
+    color: rgb(86, 130, 187); 
+    font-size: 1.4rem;    
+}
