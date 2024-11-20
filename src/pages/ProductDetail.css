@@ -20,7 +20,7 @@
 }
 
 .product-price {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: bold;
     margin: 10px 0;
 }
@@ -41,11 +41,19 @@
 
 .back-button {
     padding: 10px 20px;
-    background-color: #a18b4e;
+    background-color: #bda462;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     text-decoration: none;
+}
+
+.back-button:hover{
+    background-color: #85713a;
+}
+.product-sku{
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
 }

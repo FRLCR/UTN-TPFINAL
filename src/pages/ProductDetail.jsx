@@ -3,6 +3,7 @@ import './ProductDetail.css'
 import { useState, useEffect} from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { getProduct } from "../utils/peticiones";
+import noimage from '../assets/noimage.png'
 
 function ProductDetail() {
     const { id } = useParams(); 
@@ -12,7 +13,7 @@ function ProductDetail() {
 
     const fetchProduct = async () => {
         try {
-           setProduct(getProduct(id))
+           setProduct(await getProduct(id)) 
         } catch (err) {
             setError("Hubo un error al obtener el producto.");
         } finally {
@@ -32,12 +33,13 @@ function ProductDetail() {
     }
 
     return (
-        <div className="product-detail">
-            <h1>{product.title}</h1>
-            <img src={product.image} className="product-image" />
-            <p>{product.description}</p>
+        <div className="product-detail">            
+            <h1>{product.name}</h1>
+            <img src={noimage} className="product-image" />
+            <p>{product.desc}</p>
             <p className="product-price">Precio: ${product.price}</p>
-            <button className="buy-button">Comprar</button>
+            <p className="product-sku">SKU: {product.sku}</p>
+            <button className="buy-button" onClick={() => alert("Agregado al carrito!")}>Comprar</button>
             <br />
             <NavLink to="/" className="back-button">Volver</NavLink>
         </div>

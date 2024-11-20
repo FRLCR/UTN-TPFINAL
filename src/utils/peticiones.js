@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, setDoc, getDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, getDoc, deleteDoc, addDoc, serverTimestamp  } from "firebase/firestore";
 import { db } from "../config/firebase"
 import { auth } from "../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -66,18 +66,57 @@ export const getRole = async (userId) => {
     return role
 }
 
-export const newPoduct = async () => {
+export const newProduct = async (productData) => {
+    try {
 
-}
+        const productsCollection = collection(db, 'products');
 
-export const getProduct = async () => {
+        const docRef = await addDoc(productsCollection, {
+            name: productData.name,
+            price: productData.price,
+            stock: productData.stock,
+            sku: productData.sku,
+            createdAt: serverTimestamp(),
+        });
+    } catch (error) {
+        console.error('Error al agregar el producto: ', error);
+    }
+};
 
+
+export const getProduct = async (productId) => {
+    try {
+        let productData = null;
+
+        const productDoc = doc(db, 'products', productId);
+        const productSnapshot = await getDoc(productDoc);
+
+        if (productSnapshot.exists()) {
+            productData = {
+                id: productSnapshot.id,
+                ...productSnapshot.data(),
+            };
+        }
+
+        return productData;
+    } catch (error) {
+        console.error('Error al obtener el producto: ', error);
+        throw error;
+    }
 }
 
 export const updateProduct = async () => {
 
 }
 
-export const deleteProduct = async () => {
+export const deleteProduct = async (productId) => {
+    try {
 
+        const productDocRef = doc(db, 'products', productId);
+        await deleteDoc(productDocRef);
+
+    } catch (error) {
+        console.error('Error al eliminar el producto:', error);
+        throw error;
+    }
 }

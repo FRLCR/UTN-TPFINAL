@@ -1,6 +1,7 @@
 import React from "react";
 import Product from "./Product";
 import './ProductContainer.css'
+import noimage from '../assets/noimage.png'
 
 const MAX_RENDER = 6;
 function ProductContainer({ products }) {
@@ -14,7 +15,7 @@ function ProductContainer({ products }) {
                 <div className="product-list">
                     {products && products.length > 0 ? ( 
                         products.slice(0, MAX_RENDER).map(product => (
-                            <Product key={product.id} id={product.id} name={product.name} price={product.price} description={product.desc} image={product.image} />
+                            <Product key={product.id} id={product.id} name={product.name} price={product.price} description={product.desc} image={noimage} />
                         ))
                     ) : (
                         <div>
