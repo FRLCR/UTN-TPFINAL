@@ -3,7 +3,7 @@ import Product from "./Product";
 import './ProductContainer.css'
 import noimage from '../assets/noimage.png'
 
-const MAX_RENDER = 6;
+const MAX_RENDER = 12;
 function ProductContainer({ products }) {
 
     return (

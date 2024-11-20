@@ -1,0 +1,21 @@
+
+.product-form{
+    margin-top: 1rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 50%;
+
+    border: 2px solid #4a4de7;
+    border-radius: 8px; 
+    padding: 20px; 
+    background-color: #f9f9f9;     
+}
+
+.container-submit-button{
+    display: flex;
+    justify-content: center;
+}

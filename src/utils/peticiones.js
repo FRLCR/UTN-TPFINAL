@@ -75,6 +75,7 @@ export const newProduct = async (productData) => {
             name: productData.name,
             price: productData.price,
             stock: productData.stock,
+            desc: productData.desc,
             sku: productData.sku,
             createdAt: serverTimestamp(),
         });

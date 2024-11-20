@@ -12,7 +12,7 @@ function Login(){
 
   const handleLogin = async (e) => {
 
-    e.preventDefault();  // Evita el comportamiento por defecto del formulario
+    e.preventDefault(); 
     try {
       await signInWithEmailAndPassword(auth, email, password);
     } catch (error) {
