@@ -41,17 +41,23 @@ Para comenzar con el proyecto, clona este repositorio en tu máquina local y seg
 
 ### 1. Clonar el repositorio:
 
-git clone <https://github.com/FRLCR/UTN-TPFINAL>
+```bash
+git clone https://github.com/FRLCR/UTN-TPFINAL
+```
 
 ### 2. Navegar a la carpeta del proyecto:
 
+```bash
 cd vite-project
+```
 
 ### 3. Instalar las dependencias del proyecto:
 
 Una vez ingresado a la carpeta, ejecutar el siguiente comando:
 
+```bash
 npm install
+```
 
 ## 🔧 Configuración
 
