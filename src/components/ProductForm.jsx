@@ -1,9 +1,8 @@
-
 import { useEffect, useState } from 'react';
-import { deleteProduct, getProductList, newProduct } from '../utils/peticiones';
+import {getProduct } from '../utils/peticiones';
 import './ProductForm.css'
 
-function ProductForm({ accion, create }) {
+function ProductForm({ accion, create, mode, modifyProduct }) {
 
     const [product, setProduct] = useState({
         name: '',
@@ -12,6 +11,22 @@ function ProductForm({ accion, create }) {
         sku: '',
         desc: '',
     });
+
+
+    const fetchProduct = async () => {
+        try {
+           setProduct(await getProduct(mode.id)) 
+        } catch (err) {
+           console.error(err)
+        }
+    };
+
+    useEffect(() => {
+         if (mode.edit === true){
+            fetchProduct()
+        }
+    }, []); 
+
 
     const clearProduct = () => {
         setProduct({ name: '', price: '', stock: '', sku: '', desc: "" });
@@ -25,7 +40,15 @@ function ProductForm({ accion, create }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        create(product)
+
+        if (mode.edit === true) {
+            const isConfirmed = confirm("Estas seguro que quieres modificar este producto?")
+            if (isConfirmed) {
+                modifyProduct(product)
+            }
+        } else {
+            create(product)
+        }
         clearProduct();
     }
 

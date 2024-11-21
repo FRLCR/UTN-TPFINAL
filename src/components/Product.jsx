@@ -1,4 +1,3 @@
-import React from "react";
 import './Product.css'
 import { NavLink } from "react-router-dom";
 function Product({id, name, price, description, image}) {

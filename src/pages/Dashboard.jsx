@@ -1,18 +1,20 @@
-import React from 'react';
 import { useEffect, useState } from 'react';
 import { deleteProduct, getProductList, newProduct } from '../utils/peticiones';
 import "./Dashboard.css"
 import ProductForm from '../components/ProductForm';
+import { useNavigate } from "react-router-dom"; 
+
 
 function Dashboard() {
 
     const [productList, setProductList] = useState([])
+    const navigate = useNavigate(); 
 
     const fetchProducts = async () => {
         try {
             setProductList(await getProductList());
         } catch (err) {
-            setError("Hubo un error al obtener los productos.");
+            console.error(err)
         }
     };
 
@@ -60,7 +62,7 @@ function Dashboard() {
                                 <td>{product.desc}</td>
                                 <td>{product.sku}</td>
                                 <td>
-                                    <button className="editbutton dashboard-action-button" >Editar</button>
+                                    <button className="editbutton dashboard-action-button" onClick = {() => navigate(`/admin/dashboard/productmodify/${product.id}`)}>Editar</button>
                                     <button className="deletebutton dashboard-action-button" onClick={() => handleDelete(product.id)}>Eliminar</button>
                                 </td>
                             </tr>
@@ -69,7 +71,7 @@ function Dashboard() {
                 </table>
             </div>
 
-            <ProductForm create={createProduct} accion={"Agregar Nuevo Producto"} ></ProductForm>           
+            <ProductForm create={createProduct} accion={"Agregar Nuevo Producto"} mode={{mode: false, id: null}} ></ProductForm>           
         </div>
     );
 }

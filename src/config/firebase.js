@@ -18,6 +18,3 @@ const app = initializeApp(firebaseConfig);
 // Inicializa Firestore
 export const db = getFirestore(app);
 export const auth = getAuth(app);
-
-// Log para validar la conexión a la base de datos
-console.log("Conexión a Firestore establecida:", db);

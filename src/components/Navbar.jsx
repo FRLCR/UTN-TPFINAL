@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import './Navbar.css'
 
@@ -26,7 +25,7 @@ function Navbar() {
 
                     {isLogged && isAdmin ? <NavLink to="/admin/dashboard" className={({ isActive }) => (isActive ? "active" : undefined)}>Dashboard</NavLink> : null}
                     
-                    {isLogged ? <> <NavLink to="/profile" className={({ isActive }) => (isActive ? "active" : undefined)}>Perfil</NavLink>
+                    {isLogged ? <> <NavLink to="/user/profile" className={({ isActive }) => (isActive ? "active" : undefined)}>Perfil</NavLink>
                                    <NavLink to="/disconnect" className={({ isActive }) => (isActive ? "active" : undefined)} onClick={async () => await signOut(auth)}>Cerrar Sesión</NavLink>
                                 </> : null}
                   

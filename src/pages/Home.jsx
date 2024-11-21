@@ -1,10 +1,6 @@
-import React from "react";
 import { useEffect, useState } from 'react';
 import ProductContainer from "../components/ProductContainer";
 import { getProductList } from "../utils/peticiones";
-
-
-
 
 function Home() {
     const [loading, setLoading] = useState(true);
@@ -15,7 +11,7 @@ function Home() {
         try {
             setProductList( await getProductList());
         } catch (err) {
-            setError("Hubo un error al obtener los productos.");
+            setError(err);
         } finally {
             setLoading(false);
         }

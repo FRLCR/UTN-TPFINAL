@@ -1,7 +1,5 @@
-import React from "react";
 import './Register.css'
 import { newUser } from "../utils/peticiones";
-
 
 function register(e) {
     e.preventDefault()

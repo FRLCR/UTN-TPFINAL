@@ -1,4 +1,3 @@
-import React from "react";
 import Product from "./Product";
 import './ProductContainer.css'
 import noimage from '../assets/noimage.png'

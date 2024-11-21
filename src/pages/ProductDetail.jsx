@@ -1,4 +1,3 @@
-import React from "react";
 import './ProductDetail.css'
 import { useState, useEffect} from 'react';
 import { useParams, NavLink } from 'react-router-dom';
@@ -15,7 +14,7 @@ function ProductDetail() {
         try {
            setProduct(await getProduct(id)) 
         } catch (err) {
-            setError("Hubo un error al obtener el producto.");
+            setError(err);
         } finally {
             setLoading(false);
         }
