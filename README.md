@@ -61,8 +61,9 @@ npm install
 
 ## 🔧 Configuración
 
-Va a ser necesario que configures las variables de entorno de firebase (.env). Para ello se subió el .env.example con un ejemplo de las keys necesarias para que el proyecto funcione correctamente.   
+Va a ser necesario que configures las variables de entorno de firebase (.env). Para ello se subió el .env.example con un ejemplo de las keys necesarias para que el proyecto funcione correctamente.
 
+Las credenciales utilizadas en mi proyecto local fueron brindadas en caso de ser necesario y pueden ser encontradas en espacio de entrega del aula virtual junto al link a este repositorio.
 
 ## 🔑 Login Admin
 
